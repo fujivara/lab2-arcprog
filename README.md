@@ -1,4 +1,7 @@
-Шаблон для 2-гої роботи з архітектури ПЗ
----
+# Second work for programming architecture class
 
-Використайте кнопку **"Use this template"**, щоб створити власний репозиторій.
+## Links
+
+- [SUCCESSFUL](https://github.com/fujivara/lab2-arcprog/actions/runs/8557991522)
+- [FAILED](https://github.com/fujivara/lab2-arcprog/actions/runs/8557960477)
+- [PULL REQUEST](https://github.com/fujivara/lab2-arcprog/actions/runs/8558012779)
