@@ -10,9 +10,9 @@ import (
 )
 
 var (
-	inputExpression = flag.String("e", "", "Expression to compute")
-	inputName       = flag.String("f", "", "Input file name")
-	outputName      = flag.String("o", "", "Output file name")
+	inputExpression = flag.String("e", "", "Вираз для обробки")
+	inputName       = flag.String("f", "", "Вхідний файл")
+	outputName      = flag.String("o", "", "Вихідний файл")
 )
 
 func main() {
@@ -21,7 +21,7 @@ func main() {
 	var writeStream io.Writer
 
 	if len(*inputExpression) < 1 && len(*inputName) < 1 {
-		fmt.Fprintln(os.Stderr, "Input files must be provided")
+		fmt.Fprintln(os.Stderr, "Вхідні дані мають бути надані")
 		os.Exit(1)
 	}
 
@@ -31,7 +31,7 @@ func main() {
 		defer file.Close()
 		readStream = file
 	} else {
-		fmt.Fprintln(os.Stderr, "Input file does not exist")
+		fmt.Fprintln(os.Stderr, "Вхідний файл не існує")
 		os.Exit(1)
 	}
 
@@ -41,7 +41,7 @@ func main() {
 		defer file.Close()
 		writeStream = file
 	} else {
-		fmt.Fprintln(os.Stderr, "Cannot write to output file")
+		fmt.Fprintln(os.Stderr, "Помилка при відкритті вихідного файлу")
 		os.Exit(1)
 	}
 
