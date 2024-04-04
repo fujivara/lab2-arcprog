@@ -1,12 +1,37 @@
 package lab2
 
-// ComputeHandler should be constructed with input io.Reader and output io.Writer.
-// Its Compute() method should read the expression from input and write the computed result to the output.
+import (
+	"bytes"
+	"io"
+)
+
 type ComputeHandler struct {
-	// TODO: Add necessary fields.
+	R io.Reader
+	W io.Writer
 }
 
 func (ch *ComputeHandler) Compute() error {
-	// TODO: Implement.
-	return nil
+	var inputBuffer bytes.Buffer
+	const bufferSize = 1024
+	buffer := make([]byte, bufferSize)
+
+	for {
+		n, err := ch.R.Read(buffer)
+		if err != nil && err != io.EOF {
+			return err
+		}
+		inputBuffer.Write(buffer[:n])
+		if err == io.EOF {
+			break
+		}
+	}
+
+	input := inputBuffer.String()
+	result, err := PrefixToInfix(input)
+	if err != nil {
+		return err
+	}
+
+	_, err = ch.W.Write([]byte(result))
+	return err
 }
