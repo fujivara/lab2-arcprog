@@ -22,6 +22,6 @@ func main() {
 	//       }
 	//       err := handler.Compute()
 
-	res, _ := lab2.PrefixToInfix("+ * - 15 3 2 - / 18 2 4")
+	res, _ := lab2.PrefixToInfix("* - 4 2 6")
 	fmt.Println(res)
 }
